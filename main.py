@@ -1,4 +1,4 @@
-import dependencies.func
+import dependencies.func as func
 
 def main():
     while True:
@@ -7,7 +7,6 @@ def main():
             print "Goodbye!"
             break
         if action.lower() == "write":
-            #clue = Clue()
             func.write_clue()
 
     raw_input()    #Press enter to quit

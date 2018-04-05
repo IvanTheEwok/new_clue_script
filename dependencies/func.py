@@ -2,6 +2,8 @@ import clue    #contains the Clue class
 import sqlite3
 
 def write_clue():
+    '''Let's the user input new clues into the database'''
+
     conn = sqlite3.connect("dependencies\clues.db")
     cursor = conn.cursor()
     print "Let's import some clues!"
@@ -29,7 +31,9 @@ def write_clue():
 
     cursor.close()
 
-def read_tier_stats(tier):
+def read_tier(tier):
+    '''Reads all the clues of a specific tier in the database'''
+
     conn = sqlite3.connect("dependencies\clues.db")
     cursor = conn.cursor()
 
@@ -38,11 +42,12 @@ def read_tier_stats(tier):
                 WHERE tier=tier'''
     results = cursor.execute(sql)
     all_clues = results.fetchall()
-    for clue in all_clues:
-        print clue
     cursor.close()
+    return all_clues    #A list of all the clues of a specific tier.
 
-def read_all_stats():
+def read_all():
+    '''Reads all the clues in the database'''
+
     conn = sqlite3.connect("dependencies\clues.db")
     cursor = conn.cursor()
 
@@ -50,6 +55,23 @@ def read_all_stats():
                 FROM clues'''
     results = cursor.execute(sql)
     all_clues = results.fetchall()
-    for clue in all_clues:
-        print clue
     cursor.close()
+    return all_clues    #A list of all the clues.
+
+def completed_tier(tier):
+    '''Counts all the completed clues in the tier.'''
+
+    all_clues = read_tier(tier)    #Returns a list of all the clues in a specific tier.
+    count = 0
+    for clue in all_clues:
+        count += 1
+    return count
+
+def completed_all():
+    '''Counts all the completed clues'''
+
+    all_clues = read_all()    #Returns a list of all the clues.
+    count = 0
+    for clue in all_clues:
+        count += 1
+    return count

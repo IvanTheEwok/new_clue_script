@@ -11,28 +11,29 @@ def main():
         elif action.lower() == "statistics":
             action_statistics = raw_input("What statstics would you like to see? [easy, medium, hard, elite, master, all]: ")
             if action_statistics.lower() == "easy":
+                easy = "easy"
                 print "Easy statistics:"
-                func.read_tier_stats("easy")
+                print "Completed: {}".format(func.completed_tier(easy))
                 #Print easy statistics
             elif action_statistics.lower() == "medium":
                 print "Medium statistics:"
-                func.read_tier_stats("medium")
+                print "Completed: {}".format(func.completed_tier("medium"))
                 #Print medium statistics
             elif action_statistics.lower() == "hard":
                 print "Hard statistics:"
-                func.read_tier_stats("hard")
+                print "Completed: {}".format(func.completed_tier("hard"))
                 #Print hard statistics
             elif action_statistics.lower() == "elite":
                 print "Elite statistics:"
-                func.read_tier_stats("elite")
+                print "Completed: {}".format(func.completed_tier("elite"))
                 #Print elite statistics
             elif action_statistics.lower() == "master":
                 print "Master statistics:"
-                func.read_tier_stats("master")
+                print "Completed: {}".format(func.completed_tier("master"))
                 #Print master statistics
             elif action_statistics.lower() == "all":
                 print "All statistics:"
-                func.read_all_stats()
+                print "Completed: {}".format(func.completed_all())
                 #Print all statistics
             else:    #Invalid input
                 print "Null"

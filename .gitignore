@@ -1,2 +1,4 @@
 
 dependencies/clues.db
+*.pyc
+dependencies/clues.db

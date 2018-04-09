@@ -11,9 +11,8 @@ def main():
         elif action.lower() == "statistics":
             action_statistics = raw_input("What statstics would you like to see? [easy, medium, hard, elite, master, all]: ")
             if action_statistics.lower() == "easy":
-                easy = "easy"
                 print "Easy statistics:"
-                print "Completed: {}".format(func.completed_tier(easy))
+                print "Completed: {}".format(func.completed_tier("easy"))
                 #Print easy statistics
             elif action_statistics.lower() == "medium":
                 print "Medium statistics:"

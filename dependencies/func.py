@@ -39,8 +39,8 @@ def read_tier(tier):
 
     sql = '''SELECT *
                 FROM clues
-                WHERE tier=tier'''
-    results = cursor.execute(sql)
+                WHERE tier=?'''
+    results = cursor.execute(sql,(tier))
     all_clues = results.fetchall()
     cursor.close()
     return all_clues    #A list of all the clues of a specific tier.

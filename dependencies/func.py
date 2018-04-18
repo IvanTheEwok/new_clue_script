@@ -131,7 +131,7 @@ def average_value_tier(tier):
 def average_value_all():
     '''Returns the average reward value of all clues'''
 
-    all_clues = read_tier(tier)
+    all_clues = read_all()
     total_value = 0
     count = 0
     for clue in all_clues:

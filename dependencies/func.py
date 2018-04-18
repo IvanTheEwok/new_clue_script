@@ -90,9 +90,9 @@ def min_value_all():
     '''Returns the lowest reward value of all clues'''
 
     all_clues = read_all()
-    min_value = 999999999
+    min_value = 999999999    #A random number to use as a starting point.
     for clue in all_clues:
-        if clue[1] < min_value:
+        if clue[1] < min_value:    #The index 1 contains the value of the clue
             min_value = clue[1]
     return min_value
 
@@ -102,7 +102,7 @@ def max_value_tier(tuer):
     all_clues = read_tier(tier)
     max_value = 0
     for clue in all_clues:
-        if clue[1] > max_value:
+        if clue[1] > max_value:    #The index 1 contains the value of the clue
             max_value = clue[1]
     return max_value
 
@@ -112,9 +112,34 @@ def max_value_all():
     all_clues = read_all()
     max_value = 0
     for clue in all_clues:
-        if clue[1] > max_value:
+        if clue[1] > max_value:    #The index 1 contains the value of the clue
             max_value = clue[1]
     return max_value
+
+def average_value_tier(tier):
+    '''Returns the average reward value of a specific tier'''
+
+    all_clues = read_tier(tier)
+    total_value = 0
+    count = 0
+    for clue in all_clues:
+        total_value += clue[1]    #The index 1 contains the value of the clue
+        count += 1
+    average_value = total_value / count
+    return average_value
+
+def average_value_all():
+    '''Returns the average reward value of all clues'''
+
+    all_clues = read_tier(tier)
+    total_value = 0
+    count = 0
+    for clue in all_clues:
+        total_value += clue[1]
+        count += 1
+    average_value = total_value / count
+    return average_value
+
 
 def statistics_tier(tier):
     '''Prints the statistics of a specific tier'''
@@ -122,10 +147,12 @@ def statistics_tier(tier):
     print "Completed: {}".format(completed_tier(tier))
     print "Min. value: {}".format(min_value_tier(tier))
     print "Max. value: {}".format(max_value_tier(tier))
+    print "Average value: {}".format(average_value_tier(tier))
 
 def statistics_all():
     '''Prints the statistics of all clues'''
-    
+
     print "Completed: {}".format(completed_all())
     print "Min. value: {}".format(min_value_all())
     print "Max. value: {}".format(max_value_all())
+    print "Average value: {}".format(average_value_all(tier))

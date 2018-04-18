@@ -155,4 +155,4 @@ def statistics_all():
     print "Completed: {}".format(completed_all())
     print "Min. value: {}".format(min_value_all())
     print "Max. value: {}".format(max_value_all())
-    print "Average value: {}".format(average_value_all(tier))
+    print "Average value: {}".format(average_value_all())

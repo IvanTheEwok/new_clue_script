@@ -10,27 +10,11 @@ def main():
             func.write_clue()
         elif action.lower() == "statistics":
             action_statistics = raw_input("What statstics would you like to see? [easy, medium, hard, elite, master, all]: ")
-            if action_statistics.lower() == "easy":
-                print "Easy statistics:"
-                func.statistics_tier("easy")
-                #Print easy statistics
-            elif action_statistics.lower() == "medium":
-                print "Medium statistics:"
-                func.statistics_tier("medium")
-            elif action_statistics.lower() == "hard":
-                print "Hard statistics:"
-                func.statistics_tier("hard")
-            elif action_statistics.lower() == "elite":
-                print "Elite statistics:"
-                func.statistics_tier("elite")
-            elif action_statistics.lower() == "master":
-                print "Master statistics:"
-                func.statistics_tier("master")
-            elif action_statistics.lower() == "all":
-                print "All statistics:"
-                func.statistics_all()
-            else:    #Invalid input
-                print "Null."
+            tiers = ["easy", "medium", "hard", "elite", "master"]
+            for tier in tiers:
+                if action_statistics.lower() == tier:
+                    print "{tier} statistics:".format(tier=tier)
+                    func.statistics_tier(tier)
         else:    #Invalid input
             print "Null."
 

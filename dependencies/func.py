@@ -96,7 +96,7 @@ def min_value_all():
             min_value = clue[1]
     return min_value
 
-def max_value_tier(tuer):
+def max_value_tier(tier):
     '''Returns the highest reward value of a specific tier'''
 
     all_clues = read_tier(tier)

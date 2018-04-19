@@ -140,6 +140,23 @@ def average_value_all():
     average_value = total_value / count
     return average_value
 
+def total_value_tier(tier):
+    '''Returns the total value of all rewards in a specific tier'''
+
+    all_clues = read_tier(tier)
+    total_value = 0
+    for clue in all_clues:
+        total_value += clue[1]
+    return total_value
+
+def total_value_all():
+    '''Returns the total value of all rewards'''
+
+    all_clues = read_all()
+    total_value = 0
+    for clue in all_clues:
+        total_value += clue[1]
+    return total_value
 
 def statistics_tier(tier):
     '''Prints the statistics of a specific tier'''
@@ -148,6 +165,7 @@ def statistics_tier(tier):
     print "Min. value: {}".format(min_value_tier(tier))
     print "Max. value: {}".format(max_value_tier(tier))
     print "Average value: {}".format(average_value_tier(tier))
+    print "Total value: {}".format(total_value_tier(tier))
 
 def statistics_all():
     '''Prints the statistics of all clues'''
@@ -156,3 +174,4 @@ def statistics_all():
     print "Min. value: {}".format(min_value_all())
     print "Max. value: {}".format(max_value_all())
     print "Average value: {}".format(average_value_all())
+    print "Total value: {}".format(total_value_all())
